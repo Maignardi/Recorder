@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Recorder</string>
+    <string name="app_name">AI Voice Recorder</string>
 
     <!-- Bottom navigation -->
     <string name="nav_all">All</string>

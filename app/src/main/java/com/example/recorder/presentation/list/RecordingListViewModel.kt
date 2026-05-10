@@ -18,6 +18,8 @@ import com.example.recorder.domain.usecase.TrimRecordingUseCase
 import com.example.recorder.domain.usecase.ToggleFavoriteBatchUseCase
 import com.example.recorder.domain.usecase.MoveToTrashBatchUseCase
 import com.example.recorder.domain.usecase.MoveToFolderBatchUseCase
+import com.example.recorder.domain.usecase.RestoreRecordingBatchUseCase
+import com.example.recorder.domain.usecase.DeleteRecordingBatchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -45,7 +47,9 @@ class RecordingListViewModel @Inject constructor(
     private val moveToFolderUseCase: MoveToFolderUseCase,
     private val toggleFavoriteBatch: ToggleFavoriteBatchUseCase,
     private val moveToTrashBatch: MoveToTrashBatchUseCase,
-    private val moveToFolderBatch: MoveToFolderBatchUseCase
+    private val moveToFolderBatch: MoveToFolderBatchUseCase,
+    private val restoreBatch: RestoreRecordingBatchUseCase,
+    private val deleteBatch: DeleteRecordingBatchUseCase
 ) : ViewModel() {
 
     val folders: StateFlow<List<Folder>> = getFoldersUseCase()
@@ -126,6 +130,16 @@ class RecordingListViewModel @Inject constructor(
 
     fun moveToFolderBatch(folderId: Long?) = viewModelScope.launch {
         moveToFolderBatch.invoke(_selectedIds.value.toList(), folderId)
+        clearSelection()
+    }
+
+    fun restoreBatch() = viewModelScope.launch {
+        restoreBatch.invoke(_selectedIds.value.toList())
+        clearSelection()
+    }
+
+    fun deleteBatch() = viewModelScope.launch {
+        deleteBatch.invoke(_selectedIds.value.toList())
         clearSelection()
     }
 }

@@ -44,10 +44,10 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingHorizontal="12dp"
-        android:paddingBottom="90dp"
+        android:paddingBottom="120dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/btnEmptyTrash"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/item_recording" />
@@ -57,7 +57,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:paddingBottom="90dp"
+        android:paddingBottom="120dp"
         android:text="@string/empty_recordings"
         android:textAlignment="center"
         android:textColor="@color/on_surface_secondary"
@@ -65,18 +65,17 @@
         android:lineSpacingMultiplier="1.4"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/btnEmptyTrash"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         style="@style/Widget.Recorder.BottomNavigation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/menu_bottom_nav"
         app:labelVisibilityMode="labeled"
-        app:itemHorizontalTranslationEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

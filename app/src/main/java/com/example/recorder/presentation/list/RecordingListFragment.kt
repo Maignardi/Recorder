@@ -77,7 +77,12 @@ class RecordingListFragment : Fragment() {
 
     private val actionModeCallback = object : ActionMode.Callback {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            mode.menuInflater.inflate(R.menu.menu_multi_select, menu)
+            val menuRes = if (viewModel.currentFolder.value == RecordingFolder.TRASH) {
+                R.menu.menu_multi_select_trash
+            } else {
+                R.menu.menu_multi_select
+            }
+            mode.menuInflater.inflate(menuRes, menu)
             return true
         }
         override fun onPrepareActionMode(mode: ActionMode, menu: Menu) = false
@@ -102,6 +107,15 @@ class RecordingListFragment : Fragment() {
                     showBatchFolderPicker()
                     true
                 }
+                R.id.action_multi_restore -> {
+                    viewModel.restoreBatch()
+                    mode.finish()
+                    true
+                }
+                R.id.action_multi_delete_permanent -> {
+                    confirmBatchDeletePermanent(mode)
+                    true
+                }
                 else -> false
             }
         }
@@ -109,6 +123,18 @@ class RecordingListFragment : Fragment() {
             viewModel.clearSelection()
             actionMode = null
         }
+    }
+
+    private fun confirmBatchDeletePermanent(mode: ActionMode) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.dialog_delete_title)
+            .setMessage(R.string.dialog_delete_message)
+            .setPositiveButton(R.string.action_delete) { _, _ ->
+                viewModel.deleteBatch()
+                mode.finish()
+            }
+            .setNegativeButton(R.string.action_cancel, null)
+            .show()
     }
 
     private fun setupBottomNav() {
@@ -174,12 +200,11 @@ class RecordingListFragment : Fragment() {
             binding.bottomNav.selectedItemId = selectedItemId
         }
 
+        binding.fabRecord.visibility = View.VISIBLE
         if (folder == RecordingFolder.TRASH) {
-            binding.fabRecord.visibility = View.GONE
             binding.btnEmptyTrash.visibility = View.VISIBLE
             binding.btnEmptyTrash.setOnClickListener { confirmEmptyTrash() }
         } else {
-            binding.fabRecord.visibility = View.VISIBLE
             binding.btnEmptyTrash.visibility = View.GONE
         }
     }
