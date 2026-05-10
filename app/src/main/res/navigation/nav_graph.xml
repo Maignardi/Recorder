@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recordingListFragment">
+
+    <fragment
+        android:id="@+id/recordingListFragment"
+        android:name="com.example.recorder.presentation.list.RecordingListFragment"
+        android:label="Recorder"
+        tools:layout="@layout/fragment_recording_list">
+
+        <action
+            android:id="@+id/action_list_to_record"
+            app:destination="@id/recordFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
+
+        <action
+            android:id="@+id/action_list_to_player"
+            app:destination="@id/playerBottomSheetFragment" />
+
+        <action
+            android:id="@+id/action_list_to_transcription"
+            app:destination="@id/transcriptionFragment" />
+
+        <action
+            android:id="@+id/action_list_to_trim"
+            app:destination="@id/trimFragment" />
+
+        <action
+            android:id="@+id/action_list_to_folders"
+            app:destination="@id/folderListFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.example.recorder.presentation.record.RecordFragment"
+        android:label="Record"
+        tools:layout="@layout/fragment_record" />
+
+    <fragment
+        android:id="@+id/transcriptionFragment"
+        android:name="com.example.recorder.presentation.transcription.TranscriptionFragment"
+        android:label="Transcription"
+        tools:layout="@layout/fragment_transcription">
+        <argument
+            android:name="recordingId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/trimFragment"
+        android:name="com.example.recorder.presentation.trim.TrimFragment"
+        android:label="Trim Audio"
+        tools:layout="@layout/fragment_trim">
+        <argument
+            android:name="recordingId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/folderListFragment"
+        android:name="com.example.recorder.presentation.folders.FolderListFragment"
+        android:label="Folders"
+        tools:layout="@layout/fragment_folder_list">
+        <action
+            android:id="@+id/action_folders_to_contents"
+            app:destination="@id/folderContentsFragment" />
+        <action
+            android:id="@+id/action_folders_to_record"
+            app:destination="@id/recordFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/folderContentsFragment"
+        android:name="com.example.recorder.presentation.folders.FolderContentsFragment"
+        android:label="Folder"
+        tools:layout="@layout/fragment_folder_contents">
+        <argument android:name="folderId" app:argType="long" android:defaultValue="-1L" />
+        <argument android:name="folderName" app:argType="string" android:defaultValue="" />
+        <action
+            android:id="@+id/action_contents_to_player"
+            app:destination="@id/playerBottomSheetFragment" />
+        <action
+            android:id="@+id/action_contents_to_trim"
+            app:destination="@id/trimFragment" />
+        <action
+            android:id="@+id/action_contents_to_transcription"
+            app:destination="@id/transcriptionFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/playerBottomSheetFragment"
+        android:name="com.example.recorder.presentation.player.PlayerBottomSheetFragment"
+        android:label="Player"
+        tools:layout="@layout/bottom_sheet_player">
+        <argument
+            android:name="recordingId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </dialog>
+
+</navigation>

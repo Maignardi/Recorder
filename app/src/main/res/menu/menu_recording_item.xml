@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_rename"
+        android:title="@string/action_rename" />
+    <item
+        android:id="@+id/action_trim"
+        android:title="@string/action_trim" />
+    <item
+        android:id="@+id/action_favorite"
+        android:title="@string/action_favorite" />
+    <item
+        android:id="@+id/action_transcribe"
+        android:title="Transcribe and Summarize" />
+
+    <item
+        android:id="@+id/action_move_to_folder"
+        android:title="Move to Folder…" />
+    <item
+        android:id="@+id/action_share"
+        android:title="Share" />
+    <item
+        android:id="@+id/action_move_trash"
+        android:title="@string/action_move_trash" />
+
+</menu>

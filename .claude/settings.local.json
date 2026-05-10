@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\mmaig\\\\AndroidStudioProjects\\\\Recorder\\\\app\\\\src\\\\main\" -Recurse -Include *.kt, *.java)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\mmaig\\\\AndroidStudioProjects\\\\Recorder\\\\app\\\\src\\\\main\\\\java\\\\com\\\\example\\\\recorder\" -Recurse -Filter \"*.kt\")",
+      "Bash(Sort-Object)"
+    ]
+  }
+}

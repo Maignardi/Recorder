@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">Recorder</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_all">All</string>
+    <string name="nav_favorites">Favorites</string>
+    <string name="nav_trash">Trash</string>
+
+    <!-- Record screen -->
+    <string name="status_recording">Recording…</string>
+    <string name="status_paused">Paused</string>
+    <string name="hint_recording_name">Recording name</string>
+
+    <!-- Actions -->
+    <string name="action_save">Save</string>
+    <string name="action_discard">Discard</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_ok">OK</string>
+    <string name="action_empty">Empty Trash</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_favorite">Add to Favorites</string>
+    <string name="action_remove_favorite">Remove from Favorites</string>
+    <string name="action_move_trash">Move to Trash</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_play">Play</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_rewind_15">Rewind 15 seconds</string>
+    <string name="action_forward_15">Forward 15 seconds</string>
+    <string name="action_playback_speed">Playback speed</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_trim">Trim</string>
+    <string name="action_save_trim">Save Trim</string>
+    <string name="action_delete_permanent">Delete Permanently</string>
+    <string name="action_multi_favorite">Favorite</string>
+    <string name="action_multi_move_folder">Move to Folder</string>
+    <string name="action_multi_share">Share</string>
+    <string name="action_multi_delete">Move to Trash</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_save_title">Save Recording</string>
+    <string name="dialog_discard_title">Discard Recording?</string>
+    <string name="dialog_discard_message">This recording will be permanently deleted. This action cannot be undone.</string>
+    <string name="dialog_empty_trash_title">Empty Trash?</string>
+    <string name="dialog_empty_trash_message">All recordings in the trash will be permanently deleted.</string>
+    <string name="dialog_delete_title">Delete Recording?</string>
+    <string name="dialog_delete_message">This recording will be permanently deleted and cannot be recovered.</string>
+    <string name="dialog_rename_title">Rename Recording</string>
+    <string name="dialog_trim_title">Trim Recording</string>
+    <string name="dialog_trim_message">Select start and end time to trim (seconds):</string>
+    <string name="dialog_permission_title">Microphone Permission Required</string>
+    <string name="dialog_permission_message">Microphone access is required to record audio. Please grant the permission in Settings.</string>
+
+    <!-- Notification -->
+    <string name="notification_recording_title">Recording in progress</string>
+    <string name="notification_channel_name">Recording</string>
+    <string name="notification_channel_desc">Shows active recording status and elapsed time</string>
+
+    <!-- Folders -->
+    <string name="nav_folders">Folders</string>
+    <string name="folder_new_title">New Folder</string>
+    <string name="folder_name_hint">Folder name</string>
+    <string name="folder_rename_title">Rename Folder</string>
+    <string name="folder_delete_title">Delete Folder?</string>
+    <string name="folder_delete_message">Recordings inside will not be deleted.</string>
+    <string name="action_move_to_folder">Move to Folder…</string>
+    <plurals name="folder_recording_count">
+        <item quantity="one">%d recording</item>
+        <item quantity="other">%d recordings</item>
+    </plurals>
+
+    <!-- Empty states -->
+    <string name="empty_recordings">No recordings yet.\nTap the mic button to start.</string>
+    <string name="empty_favorites">No favorites yet.\nStar a recording to add it here.</string>
+    <string name="empty_trash">Trash is empty.</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_all"
+        android:icon="@drawable/ic_mic"
+        android:title="@string/nav_all" />
+
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/ic_favorite_border"
+        android:title="@string/nav_favorites" />
+
+    <item
+        android:id="@+id/nav_record_placeholder"
+        android:icon="@drawable/ic_transparent"
+        android:title=" "
+        android:enabled="false" />
+
+    <item
+        android:id="@+id/nav_folders"
+        android:icon="@drawable/ic_folder"
+        android:title="@string/nav_folders" />
+
+    <item
+        android:id="@+id/nav_trash"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/nav_trash" />
+
+</menu>
